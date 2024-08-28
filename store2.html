@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>門市資訊|Funny桌遊</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-image: url("./images/background-2.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .social-icon i {
+        font-size: 28px;
+        margin: 10px;
+        color: black;
+      }
+      .social-icon i:hover {
+        color: lightgray;
+      }
+      .footer-social-icon i {
+        margin: 0 5px;
+        font-size: 28px;
+      }
+      .nav-item {
+        margin: 20px;
+      }
+      .navbar.navbar-primary {
+        max-height: 500px;
+        z-index: 2;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: rgb(8, 57, 149);
+      }
+      .fa-facebook:hover {
+        color: #4267b2;
+      }
+      .fa-instagram:hover {
+        color: #e1306c;
+      }
+      .fa-youtube:hover {
+        color: #ff0000;
+      }
+      .fa-line:hover {
+        color: #06c755;
+      }
+      .table tbody tr td, .table tbody tr th {
+        line-height: 2;
+      }
+      .list-group-item:hover {
+        background-color: #f8f9fa; 
+        color:#1950bd; 
+      }
+      .list-group-item.active {
+      background-color: white;
+      color: black;
+      border-color: lightgray;
+      }
+      .list-group-item.active:hover {
+        background-color:  #f8f9fa; 
+        color:#1950bd;
+      }
+      tr:nth-child(even) {
+        background-color: rgb(236, 244, 245);
+      }
+      footer {
+        background-image: url("./images/background-1.png");
+        background-size: cover;
+        background-position: center;
+        color: rgb(102, 102, 102);
+        font-weight: 20px;
+        font-size: 18px;
+        height: 300px;
+      }
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        background-color: rgba(105, 108, 109, 0.818);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 30px;
+      }
+      #cartItems {
+        margin-top: 40px;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .productQuantity {
+        width: 50px;
+        margin-left: 10px;
+      }
+      .productImage {
+        width: 100px;
+        height: auto;
+        margin-right: 10px;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 30px;
+        color: #000;
+      }
+      #cartIcon {
+        border: none;
+        outline: none;
+        background: transparent;
+      }
+      #cartCount {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        color: white;
+        background-color: rgba(255, 0, 0, 0.841);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .remove-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      button {
+        background-color: #e3f2fd;
+        border-radius: 5px;
+        border: 1px solid rgb(181, 206, 248);
+        padding: 4px;
+      }
+      #loginButton {
+        color: rgba(0, 0, 0, 0.611);
+        border-color: lightgray;
+      }
+      #loginButton:hover {
+        background-color: #afc6f3cb;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav 導覽列 -->
+    <nav class="navbar navbar-primary sticky-top pt-0 pb-0" style="background-color: #e3f2fd">
+      <div class="container">
+        <a class="navbar-brand logo" href="./index.html">
+          <img
+            src="./images/Logo-removebg-preview.png"
+            alt="Logo"
+            width="85"
+            height="85"
+            class="d-inline-block align-text-center"
+          />
+          Funny桌遊
+        </a>
+        <div class="row w-50">
+          <div class="col-12">
+            <ul class="nav justify-content-center fs-5">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./about.html"
+                  >關於我們</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./product.html">全部產品</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./store.html">門市資訊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">聯絡我們</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+       <!-- 錨點 anchor ID-->
+        <div class="social-icon ms-auto d-flex align-items-center">
+          <a href="./login.html">
+            <i id="userIcon" class="fa-solid fa-user"></i
+          ></a>
+          <button
+            id="loginButton"
+            type="button"
+            onclick="window.location.href='./login.html'"
+          >
+            登入 / 註冊
+          </button>
+          <i
+            id="CartButton"
+            class="fa-solid fa-cart-shopping me-auto position: relative;"
+          ></i>
+          <span id="cartCount" class="cart-count">0</span>
+        </div>
+      </div>
+    </nav>
+    <!-- sidebar -->
+    <div id="cartSidebar" class="sidebar">
+      <div class="sidebar-content" style="color: white; padding: 20px">
+        <button id="closeCartButton" class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="fs-4">購物車</h2>
+        <div id="cartItems">
+          <!-- 顯示購物車商品 -->
+        </div>
+        <div class="row text-center">
+          <div class="col-6">
+            <div id="cartTotal" class="fs-5">
+              <p>總價: <span id="totalPrice">0</span></p>
+            </div>
+          </div>
+          <div class="col-6">
+            <button
+              id="checkoutButton"
+              style="
+                background-color: #2d5092e3;
+                color: white;
+                border: 0px;
+                cursor: pointer;
+                padding: 10px;
+              "
+            >
+              前往結帳
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 麵包屑 -->
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="./index.html" style="color: #0b3c9f">首頁</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">門市資訊
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">中部</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+      <hr />
+      <!-- 搜尋欄 -->
+    <nav class="navbar">
+      <div class="container justify-content-end">
+        <form class="d-flex" role="search" onsubmit="handleSearch(event)">
+          <input
+            id="userInput"
+            class="form-control-sm me-2"
+            type="search"
+            placeholder="尋找門市"
+            aria-label="Search"
+            value=""
+          />
+          <button id="btnQuery" class="btn btn-outline-secondary" type="submit">
+            搜尋
+          </button>
+        </form>
+        <div id="result"></div>
+      </div>
+    </nav>
+    <!-- 清單 & 門市資訊-->
+    <div class="container pt-4 pb-5 text-center">
+      <div class="row">
+        <div class="col-2">
+          <div class="list-group">
+            <a
+              href="./store1.html"
+              class="list-group-item list-group-item-action active bg-info bg-opacity-10 fs-5"
+              aria-current="true"
+            >北部
+            </a>
+            <a href="./store2.html" class="list-group-item list-group-item-action bg-info bg-opacity-25 fs-5"
+              >中部</a
+            >
+            <a href="./store3.html" class="list-group-item list-group-item-action bg-info bg-opacity-10 fs-5"
+              >南部</a
+            >
+            <a href="./store4.html" class="list-group-item list-group-item-action bg-info bg-opacity-25 fs-5"
+              >東部</a
+            >
+          </div>
+        </div>
+        <div class="col-10">
+            <table class="table table-hover">
+          <thead>
+            <tr class="table-danger">
+              <th scope="col">門市名稱</th>
+              <th scope="col">電話</th>
+              <th scope="col">地址</th>
+              <th scope="col">撥號</th>
+              <th scope="col">導航</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">文華店</th>
+              <td>04-2223-0898</td>
+              <td>台中市西屯區文華路7號</td>
+              <td><i class="fa-solid fa-phone"></i></td>
+              <td><a href="https://maps.app.goo.gl/SNRoeTFE2DNrvjCv7"
+                ><i class="fa-solid fa-location-dot"></i></td>
+            </tr>
+            <tr>
+              <th scope="row">龍井店</th>
+              <td>04-7871-3452</td>
+              <td>台中市龍井區新興路1巷1號</td>
+              <td><i class="fa-solid fa-phone"></i></td>
+              <td><a href="https://maps.app.goo.gl/SNRoeTFE2DNrvjCv7"
+                ><i class="fa-solid fa-location-dot"></i></td>
+            </tr>
+            <tr>
+              <th scope="row">彰化店</th>
+              <td>04-141-3452</td>
+              <td>彰化縣彰化市民族路520號</td>
+              <td><i class="fa-solid fa-phone"></i></td>
+              <td><a href="https://maps.app.goo.gl/SNRoeTFE2DNrvjCv7"
+                ><i class="fa-solid fa-location-dot"></i></td>
+            </tr>
+            <tr>
+              <th scope="row">鹿港店</th>
+              <td>04-231-3452</td>
+              <td>彰化縣鹿港鎮中山路155號</td>
+              <td><i class="fa-solid fa-phone"></i></td>
+              <td><a href="https://maps.app.goo.gl/SNRoeTFE2DNrvjCv7"
+                ><i class="fa-solid fa-location-dot"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    function handleSearch(event) {
+        event.preventDefault(); // 防止表單提交刷新頁面
+
+        let userInput = document.getElementById("userInput").value.trim(); // 獲取輸入的內容
+
+        // 在這裡遍歷表格中的每一行，根據使用者輸入的內容顯示符合條件的行
+        let rows = document.querySelectorAll("tbody tr");
+        rows.forEach((row) => {
+            let cityName = row.querySelector("th").innerText; // 獲取門市名稱
+            let address = row.querySelectorAll("td")[1].innerText; // 獲取地址
+            if (cityName.includes(userInput) || address.includes(userInput)) {
+                row.style.display = "table-row"; // 如果門市名稱或地址包含用戶輸入的內容，則顯示該行
+            } else {
+                row.style.display = "none"; // 如果不符合，則隱藏該行
+            }
+        });
+        document.getElementById("result").innerText = ""; // 清空搜索结果提示
+    }
+</script>
+  <script src="cartData.js"></script>
+  <script>
+    let cart = [];
+
+    // 顯示購物車視窗
+    function showCartSidebar() {
+      document.getElementById("cartSidebar").style.width = "400px";
+    }
+
+    // 隱藏購物車視窗
+    function hideCartSidebar() {
+      document.getElementById("cartSidebar").style.width = "0";
+    }
+
+    // 更新購物車圖示上的數量顯示
+    function updateCartIcon() {
+      const cartCountElement = document.getElementById("cartCount");
+      const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+      cartCountElement.textContent = totalItems;
+    }
+
+    // 添加商品到購物車
+    function addToCart(productId) {
+      const product = cartData.find((p) => p.id === productId);
+      // 檢查商品是否已在購物車中
+      if (product) {
+        const cartItem = cart.find((item) => item.id === productId);
+        if (cartItem) {
+          cartItem.quantity += 1;
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+
+        updateCartIcon();
+        displayCartItems();
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+    }
+
+    // 顯示購物車項目
+    function displayCartItems() {
+      const cartItemsContainer = document.getElementById("cartItems");
+      // 清空現有項目
+      cartItemsContainer.innerHTML = "";
+      let totalPrice = 0;
+
+      cart.forEach((item) => {
+        const itemElement = document.createElement("div");
+        itemElement.classList.add("cart-item");
+        itemElement.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="productImage">
+          <p>${item.name}</p>
+          <input type="number" value="${
+            item.quantity
+          }" min="1" class="productQuantity" data-id="${item.id}">
+          <p>$${(item.price * item.quantity).toFixed(0)}</p>
+          <button class="remove-button" data-id="${
+            item.id
+          }"><i class="fa-solid fa-trash-can"></i></button>
+      `;
+        cartItemsContainer.appendChild(itemElement);
+        // 計算總價
+        totalPrice += item.price * item.quantity;
+      });
+      // 顯示總價
+      const totalPriceElement = document.getElementById("totalPrice");
+      totalPriceElement.textContent = `$${totalPrice.toFixed(0)}`;
+      // 添加事件監聽器到數量輸入框
+      const quantityInputs = document.querySelectorAll(".productQuantity");
+      quantityInputs.forEach((input) => {
+        input.addEventListener("change", function () {
+          updateQuantity(
+            this.dataset.id,
+            this.value -
+              cart.find((item) => item.id === this.dataset.id).quantity
+          );
+        });
+      });
+      // 添加事件監聽器到移除按鈕
+      const removeButtons = document.querySelectorAll(".remove-button");
+      removeButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          removeFromCart(this.dataset.id);
+        });
+      });
+    }
+
+    // 更新商品數量
+    function updateQuantity(id, change) {
+      const item = cart.find((product) => product.id === id);
+      if (item) {
+        item.quantity += parseInt(change);
+        if (item.quantity < 1) {
+          removeFromCart(id);
+        } else {
+          displayCartItems();
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+      }
+    }
+
+    // 從購物車中移除商品
+    function removeFromCart(id) {
+      cart = cart.filter((item) => item.id !== id);
+      displayCartItems();
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    // 在其他頁面加載時從本地存儲中加載購物車資料
+    window.addEventListener("load", function () {
+      const savedCart = localStorage.getItem("cart");
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartIcon();
+        displayCartItems();
+      }
+    });
+    // 商品加入購物車按鈕後顯示已加入購物車
+    document.querySelectorAll(".mybutton").forEach(function (button) {
+      button.onclick = function () {
+        const productId = this.dataset.productId;
+        addToCart(productId);
+        alert("已加入購物車");
+      };
+    });
+    // 點擊購物車icon顯示側邊欄
+    document.getElementById("CartButton").onclick = function () {
+      showCartSidebar();
+    };
+    // 關閉購物車按鈕後隱藏
+    document.getElementById("closeCartButton").onclick = function () {
+      hideCartSidebar();
+    };
+
+    document.getElementById("checkoutButton").onclick = function () {
+      hideCartSidebar();
+      alert("感謝購買！");
+      cart = [];
+      localStorage.removeItem("cart"); // 在結帳時清空本地存儲中的購物車資料
+      displayCartItems();
+      updateCartIcon();
+    };
+  </script>
+    <!-- footer -->
+    <footer>
+      <div
+        class="footer-logo text-center pt-4"
+        style="
+          color: rgb(8, 57, 149);
+          font-weight: 800;
+          font-size: 1.5rem;
+          background-image: url(./images/background-1.png);
+        "
+      >
+        <img
+          src="./images/Logo-removebg-preview.png"
+          alt="Logo"
+          width="80"
+          height="80"
+        />
+        Funny桌遊
+      </div>
+      <p class="text-center pt-4">
+        <span
+          >【聯絡方式】電話:0988-000-111
+          <br />
+          【上班時間】平日10:00~12:00、14:00~18:00
+        </span>
+      </p>
+      <div class="footer-social-icon text-center pt-4 pb-3">
+        <!-- 錨點 anchor ID-->
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-line"></i>
+      </div>
+      <div class="copyright text-center fs-6">2024陳伊宣期中專題©</div>
+    </footer>
+  </body>
+</html>

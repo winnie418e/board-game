@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品詳細頁面</title>
+  </head>
+  <script src="data.js"></script>
+  <body>
+    <div class="productDetial" id="productDetial">
+      <h2 id="productName"></h2>
+      <img
+        id="productImage"
+        src=""
+        alt=""
+        style="width: 100px; height: 100px"
+      />
+      <p>產品編號：<span id="productID"></span></p>
+    </div>
+  </body>
+  <script>
+    // 使用URLSearchParams解析URL參數
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+      const product = products.find((p) => p.id === productId);
+
+      if (product) {
+        document.getElementById("productName").textContent = product.name;
+        document.getElementById("productID").textContent = product.id;
+        document.getElementById("productImage").src = product.image;
+        document.getElementById("productImage").alt = product.name;
+      } else {
+        document.getElementById("productDetail").innerHTML =
+          "<p>未找到產品資料。</p>";
+      }
+    });
+  </script>
+</html>

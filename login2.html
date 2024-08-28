@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-image: url("./images/back-4.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .social-icon i {
+        font-size: 28px;
+        margin: 10px;
+        color: black;
+      }
+      .social-icon i:hover {
+        color: lightgray;
+      }
+      .footer-social-icon i {
+        margin: 0 5px;
+        font-size: 28px;
+      }
+      .nav-item {
+        margin: 20px;
+      }
+      .navbar {
+        max-height: 500px; /* 設置導航列的最大寬度 */
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: rgb(8, 57, 149);
+      }
+      .login {
+        width: 600px;
+        height: 400px;
+        background-color: rgba(3, 80, 124, 0.207);
+        border-radius: 20px;
+        border: 10px solid rgba(0, 200, 255, 0.151);
+        box-shadow: 0 0 20px rgb(180, 205, 253);
+      }
+      a.user-link {
+        border-bottom: 1px solid;
+      }
+      button {
+        background-color: #e3f2fd;
+        border-radius: 5px;
+        border: 1px solid rgb(181, 206, 248);
+        padding: 4px;
+      }
+      #loginButton {
+        color: rgba(0, 0, 0, 0.611);
+        border-color: lightgray;
+        border-radius: 8px;
+      }
+      #loginButton:hover {
+        background-color: #afc6f3cb;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar sticky-top pt-0 pb-0" style="background-color: #e3f2fd">
+      <div class="container">
+        <a class="navbar-brand logo" href="./index.html">
+          <img
+            src="./images/Logo-removebg-preview.png"
+            alt="Logo"
+            width="85"
+            height="85"
+            class="d-inline-block align-text-center"
+          />
+          Funny桌遊
+        </a>
+        <div class="row w-50">
+          <div class="col-12">
+            <ul class="nav justify-content-center fs-5">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./about.html"
+                  >關於我們</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./product.html">全部產品</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./store.html">門市資訊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">聯絡我們</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 錨點 anchor ID-->
+        <div class="social-icon ms-auto d-flex align-items-center">
+          <a href="./login.html">
+            <i id="userIcon" class="fa-solid fa-user"></i
+          ></a>
+          <button
+            id="loginButton"
+            type="button"
+            onclick="window.location.href='./login.html'"
+          >
+            登入 / 註冊
+          </button>
+          <i class="fa-solid fa-cart-shopping me-auto"></i>
+        </div>
+      </div>
+    </nav>
+    <!-- 表單 -->
+    <div class="container">
+      <div class="d-flex justify-content-center text-center pt-5 mt-5">
+        <div class="login pt-5">
+          <form id="myForm" class="form" novalidate>
+            <p style="color: rgb(128, 126, 126)">
+              已有會員! <a href="./login.html" class="user-link">登入</a>
+            </p>
+            <h1 class="fs-3 fw-semibold" style="color: rgba(2, 74, 118, 0.767)">
+              註冊會員
+            </h1>
+            <hr />
+            <div class="group pt-3 pb-3">
+              <label for="user_name">姓名</label>
+              <input type="text" name="" id="user_name" required />
+            </div>
+            <div class="group pt-2 pb-3">
+              <label for="user_id">帳號</label>
+              <input type="text" name="" id="user_id" required />
+            </div>
+            <div class="group pt-2 pb-3">
+              <label for="user_password">密碼</label>
+              <input type="password" name="" id="user_password" required />
+            </div>
+            <div class="pt-3">
+              <button class="btn btn-secondary ps-4 pe-4">註冊</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelector(".btn-secondary")
+          .addEventListener("click", function (event) {
+            var form = document.getElementById("myForm");
+            if (form.checkValidity()) {
+              alert("註冊成功!");
+            } else {
+              alert("請填寫完整");
+              event.preventDefault();
+            }
+          });
+      });
+    </script>
+  </body>
+</html>

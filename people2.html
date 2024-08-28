@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>全部產品|Funny桌遊</title>
+
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-image: url("./images/background-2.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      .social-icon i {
+        font-size: 28px;
+        margin: 10px;
+        color: black;
+      }
+      .social-icon i:hover {
+        color: lightgray;
+      }
+      .footer-social-icon i {
+        margin: 0 5px;
+        font-size: 28px;
+      }
+      .nav-item {
+        margin: 20px;
+      }
+      .navbar.navbar-primary {
+        max-height: 500px;
+        z-index: 2;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: rgb(8, 57, 149);
+      }
+      .fa-facebook:hover {
+        color: #4267b2;
+      }
+      .fa-instagram:hover {
+        color: #e1306c;
+      }
+      .fa-youtube:hover {
+        color: #ff0000;
+      }
+      .fa-line:hover {
+        color: #06c755;
+      }
+       .product-image {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+      }
+      .pagination .page-item {
+      border-right: 1px solid #ddd;
+      }
+      .pagination .page-item .page-link{
+        border:none;
+        border-right: 1px solid #ddd;
+        border-radius: 0;
+      }
+      .pagination .page-item:last-of-type {
+        border-right: none; 
+      }
+      button {
+        background-color: #e3f2fd;
+        border-radius: 5px;
+        border: 1px solid rgb(181, 206, 248);
+        padding: 4px;
+      }
+      .product-image {
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+    .product-image:hover {
+      transform: scale(1.05); 
+      transition: transform 0.3s ease; 
+    }
+    .product {
+      overflow: hidden; 
+    }
+      footer {
+        background-image: url("./images/background-1.png");
+        background-size: cover;
+        background-position: center;
+        color: rgb(102, 102, 102);
+        font-weight: 20px;
+        font-size: 18px;
+        height: 300px;
+      }
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        background-color: rgba(105, 108, 109, 0.818);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 30px;
+      }
+      #cartItems {
+        margin-top: 40px;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .productQuantity {
+        width: 50px;
+        margin-left: 10px;
+      }
+      .productImage {
+        width: 100px;
+        height: auto;
+        margin-right: 10px;
+      }
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 30px;
+        color: #000;
+      }
+      #cartIcon {
+        border: none;
+        outline: none;
+        background: transparent;
+      }
+      #cartCount {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        color: white;
+        background-color: rgba(255, 0, 0, 0.841);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .remove-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+      #loginButton {
+        color: rgba(0, 0, 0, 0.611);
+        border-color: lightgray;
+      }
+      #loginButton:hover {
+        background-color: #afc6f3cb;
+      }
+      .nav-link:hover{
+        background-color: #e3f2fdb8;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav 導覽列 -->
+    <nav class="navbar navbar-primary sticky-top pt-0 pb-0" style="background-color: #e3f2fd">
+      <div class="container">
+        <a class="navbar-brand logo" href="./index.html">
+          <img
+            src="./images/Logo-removebg-preview.png"
+            alt="Logo"
+            width="85"
+            height="85"
+            class="d-inline-block align-text-center"
+          />
+          Funny桌遊
+        </a>
+        <div class="row w-50">
+          <div class="col-12">
+            <ul class="nav justify-content-center fs-5">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./about.html"
+                  >關於我們</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./product.html">全部產品</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./store.html">門市資訊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">聯絡我們</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 錨點 anchor ID-->
+        <div class="social-icon ms-auto d-flex align-items-center">
+          <a href="./login.html">
+            <i id="userIcon" class="fa-solid fa-user"></i
+          ></a>
+          <button
+            id="loginButton"
+            type="button"
+            onclick="window.location.href='./login.html'"
+          >
+            登入 / 註冊
+          </button>
+          <i
+            id="CartButton"
+            class="fa-solid fa-cart-shopping me-auto position: relative;"
+          ></i>
+          <span id="cartCount" class="cart-count">0</span>
+        </div>
+      </div>
+    </nav>
+    <!-- sidebar -->
+    <div id="cartSidebar" class="sidebar">
+      <div class="sidebar-content" style="color: white; padding: 20px">
+        <button id="closeCartButton" class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h2 class="fs-4">購物車</h2>
+        <div id="cartItems">
+          <!-- 顯示購物車商品 -->
+        </div>
+        <div class="row text-center">
+          <div class="col-6">
+            <div id="cartTotal" class="fs-5">
+              <p>總價: <span id="totalPrice">0</span></p>
+            </div>
+          </div>
+          <div class="col-6">
+            <button
+              id="checkoutButton"
+              style="
+                background-color: #2d5092e3;
+                color: white;
+                border: 0px;
+                cursor: pointer;
+                padding: 10px;
+              "
+            >
+              前往結帳
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- products nav -->
+    <nav class="navbar navbar-secondary navbar-expand-lg navbar-light">
+      <div class="container justify-content-center">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link fw-bold" style="color:slategray" href="./product.html" onclick="showProducts('全部商品')">全部商品</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fw-bold" style="color:slategray" href="./new.html" onclick="showProducts('最新上架')">最新上架</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle fw-bold"
+          data-bs-toggle="dropdown"
+          style="color:slategray"
+          href="./product.html"
+          role="button"
+          aria-expanded="false"
+          >產品類型</a
+        >
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" style="color:slategray" href="./product.hot.html" onclick="showProducts('熱門')">熱門</a></li>
+          <li><a class="dropdown-item" style="color:slategray" href="./product.party.html" onclick="showProducts('派對')">派對</a></li>
+          <li><a class="dropdown-item" style="color:slategray" href="./product.funny.html" onclick="showProducts('休閒')">休閒</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle fw-bold"
+          data-bs-toggle="dropdown"
+          style="color:slategray"
+          href="./product.html"
+          role="button"
+          aria-expanded="false"
+          >適合對象</a
+        >
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" style="color:slategray" href="./people1.html" onclick="showProducts('1~2人')">1~2人</a></li>
+          <li><a class="dropdown-item" style="color:slategray" href="./people2.html" onclick="showProducts('6人以上')">6人以上</a></li>
+        </ul>
+      </li>
+    </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 麵包屑 -->
+    <div class="container mt-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="./index.html" style="color: #0b3c9f">首頁</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">適合對象
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">6人以上</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+    <hr />
+    <!-- products all-->
+
+
+    <div class="container clearfix">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=17"><img
+              src="./images/伊斯坦堡17.jpeg"
+              alt="伊斯坦堡"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                伊斯坦堡<br /><span class="product-price fw-bold">$990</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="17">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=21"><img
+              src="./images/估姑劃劃21.webp"
+              alt="估估劃劃"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                估估劃劃<br /><span class="product-price fw-bold">$650</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="21">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=20"><img src="./images/冰山疊企鵝20.jpeg" alt="冰山疊企鵝" class="product-image" /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                冰山疊企鵝<br /><span class="product-price fw-bold">$880</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="20">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=29"><img src="./images/名畫神偷29.jpeg" alt="名畫神偷" class="product-image" /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                名畫神偷<br /><span class="product-price fw-bold">$750</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="29">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=34"><img
+              src="./images/惡魔島34.jpeg"
+              alt="惡魔島"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                惡魔島<br /><span class="product-price fw-bold">$690</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="34">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=04"><img src="./images/目擊者之夜4.jpeg" alt="目擊者之夜" class="product-image" /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                目擊者之夜<br /><span class="product-price fw-bold">$1100</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="04">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=47"><img
+              src="./images/閃靈快手47.jpeg"
+              alt="閃靈快手"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                閃靈快手<br /><span class="product-price fw-bold">$790</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="47">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=30"><img
+              src="./images/城市規劃師30.jpeg"
+              alt="城市規劃師"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                城市規劃師<br /><span class="product-price fw-bold">$540</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="30">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5 pb-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=18"><img
+              src="./images/作弊飛蛾18.jpeg"
+              alt="作弊飛蛾"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                作弊飛蛾<br /><span class="product-price fw-bold">$990</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="18">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5 pb-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=28"><img
+              src="./images/馬可波羅28.webp"
+              alt="馬可波羅"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                馬可波羅<br /><span class="product-price fw-bold">$850</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="28">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5 pb-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=38"><img
+              src="./images/抓鬼大隊38.webp"
+              alt="抓鬼大隊"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                抓鬼大隊<br /><span class="product-price fw-bold">$640</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="38">加入購物車</button>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 pt-5 pb-5">
+          <div class="product text-center">
+            <a href="./products/products1.html?id=02"><img
+              src="./images/矮人礦坑2.jpg"
+              alt="矮人礦坑"
+              class="product-image"
+            /></a>
+            <p class="product mt-4 lh-lg fs-5">
+                矮人礦坑<br /><span class="product-price fw-bold">$700</span>
+            </p>
+            <button class="mybutton fs-5" data-product-id="02">加入購物車</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="cartData.js"></script>
+    <script>
+      let cart = [];
+
+      // 顯示購物車視窗
+      function showCartSidebar() {
+        document.getElementById("cartSidebar").style.width = "400px";
+      }
+
+      // 隱藏購物車視窗
+      function hideCartSidebar() {
+        document.getElementById("cartSidebar").style.width = "0";
+      }
+
+      // 更新購物車圖示上的數量顯示
+      function updateCartIcon() {
+        const cartCountElement = document.getElementById("cartCount");
+        const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
+      }
+
+      // 添加商品到購物車
+      function addToCart(productId) {
+        const product = cartData.find((p) => p.id === productId);
+        // 檢查商品是否已在購物車中
+        if (product) {
+          const cartItem = cart.find((item) => item.id === productId);
+          if (cartItem) {
+            cartItem.quantity += 1;
+          } else {
+            cart.push({ ...product, quantity: 1 });
+          }
+
+          updateCartIcon();
+          displayCartItems();
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+      }
+
+      // 顯示購物車項目
+      function displayCartItems() {
+        const cartItemsContainer = document.getElementById("cartItems");
+        // 清空現有項目
+        cartItemsContainer.innerHTML = "";
+        let totalPrice = 0;
+
+        cart.forEach((item) => {
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("cart-item");
+          itemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="productImage">
+            <p>${item.name}</p>
+            <input type="number" value="${
+              item.quantity
+            }" min="1" class="productQuantity" data-id="${item.id}">
+            <p>$${(item.price * item.quantity).toFixed(0)}</p>
+            <button class="remove-button" data-id="${
+              item.id
+            }"><i class="fa-solid fa-trash-can"></i></button>
+        `;
+          cartItemsContainer.appendChild(itemElement);
+          // 計算總價
+          totalPrice += item.price * item.quantity;
+        });
+        // 顯示總價
+        const totalPriceElement = document.getElementById("totalPrice");
+        totalPriceElement.textContent = `$${totalPrice.toFixed(0)}`;
+        // 添加事件監聽器到數量輸入框
+        const quantityInputs = document.querySelectorAll(".productQuantity");
+        quantityInputs.forEach((input) => {
+          input.addEventListener("change", function () {
+            updateQuantity(
+              this.dataset.id,
+              this.value -
+                cart.find((item) => item.id === this.dataset.id).quantity
+            );
+          });
+        });
+        // 添加事件監聽器到移除按鈕
+        const removeButtons = document.querySelectorAll(".remove-button");
+        removeButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            removeFromCart(this.dataset.id);
+          });
+        });
+      }
+
+      // 更新商品數量
+      function updateQuantity(id, change) {
+        const item = cart.find((product) => product.id === id);
+        if (item) {
+          item.quantity += parseInt(change);
+          if (item.quantity < 1) {
+            removeFromCart(id);
+          } else {
+            displayCartItems();
+            localStorage.setItem("cart", JSON.stringify(cart));
+          }
+        }
+      }
+
+      // 從購物車中移除商品
+      function removeFromCart(id) {
+        cart = cart.filter((item) => item.id !== id);
+        displayCartItems();
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+
+      // 在其他頁面加載時從本地存儲中加載購物車資料
+      window.addEventListener("load", function () {
+        const savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+          cart = JSON.parse(savedCart);
+          updateCartIcon();
+          displayCartItems();
+        }
+      });
+      // 商品加入購物車按鈕後顯示已加入購物車
+      document.querySelectorAll(".mybutton").forEach(function (button) {
+        button.onclick = function () {
+          const productId = this.dataset.productId;
+          addToCart(productId);
+          alert("已加入購物車");
+        };
+      });
+      // 點擊購物車icon顯示側邊欄
+      document.getElementById("CartButton").onclick = function () {
+        showCartSidebar();
+      };
+      // 關閉購物車按鈕後隱藏
+      document.getElementById("closeCartButton").onclick = function () {
+        hideCartSidebar();
+      };
+
+      document.getElementById("checkoutButton").onclick = function () {
+        hideCartSidebar();
+        alert("感謝購買！");
+        cart = [];
+        localStorage.removeItem("cart"); // 在結帳時清空本地存儲中的購物車資料
+        displayCartItems();
+        updateCartIcon();
+      };
+    </script>
+    
+    <!-- footer -->
+    <footer>
+      <div
+        class="footer-logo text-center pt-4"
+        style="
+          color: rgb(8, 57, 149);
+          font-weight: 800;
+          font-size: 1.5rem;
+          background-image: url(./images/background-1.png);
+        "
+      >
+        <img
+          src="./images/Logo-removebg-preview.png"
+          alt="Logo"
+          width="80"
+          height="80"
+        />
+        Funny桌遊
+      </div>
+      <p class="text-center pt-4">
+        <span
+          >【聯絡方式】電話:0988-000-111
+          <br />
+          【上班時間】平日10:00~12:00、14:00~18:00
+        </span>
+      </p>
+      <div class="footer-social-icon text-center pt-4 pb-3">
+        <!-- 錨點 anchor ID-->
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-line"></i>
+      </div>
+      <div class="copyright text-center fs-6">2024陳伊宣期中專題©</div>
+    </footer>
+  </body>
+</html>
